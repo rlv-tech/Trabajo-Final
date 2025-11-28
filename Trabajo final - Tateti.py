@@ -29,40 +29,36 @@ def movimiento_maquina(tablero):
 # Juego principal
 def tateti():
     tablero = ["1","2","3","4","5","6","7","8","9"]
-
+   
     jugador = "X"
     maquina = "O"
-
+    
     print("\n¡Bienvenido al Ta-Te-Ti contra la máquina!")
     mostrar_tablero(tablero)
-
+    
     turno = "jugador"
 
     while True:
 
-        
         # Turno del jugador
         if turno == "jugador":
-
             casilla = input("Elegí un casillero (1-9): ")
 
             if not casilla.isdigit():
                 print("Tenés que ingresar un número del 1 al 9.")
                 continue
-
             casilla = int(casilla) - 1
-
+            
             if casilla < 0 or casilla > 8:
                 print("Posición inválida.")
                 continue
-
+            
             if tablero[casilla] in ["X", "O"]:
                 print("Ese lugar ya está ocupado.")
                 continue
-
             tablero[casilla] = jugador
             mostrar_tablero(tablero)
-
+            
             if hay_ganador(tablero, jugador):
                 print("¡Felicidades, ganaste!\n")
                 break
